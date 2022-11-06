@@ -31,6 +31,6 @@ func (ic *ContainerEngine) PlayKube(ctx context.Context, body io.Reader, opts en
 	return play.KubeWithBody(ic.ClientCtx, body, options)
 }
 
-func (ic *ContainerEngine) PlayKubeDown(ctx context.Context, body io.Reader, _ entities.PlayKubeDownOptions) (*entities.PlayKubeReport, error) {
-	return play.DownWithBody(ic.ClientCtx, body)
+func (ic *ContainerEngine) PlayKubeDown(ctx context.Context, body io.Reader, options entities.PlayKubeDownOptions) (*entities.PlayKubeReport, error) {
+	return play.DownWithBody(ic.ClientCtx, body, kube.DownOptions{Force: &options.Force})
 }

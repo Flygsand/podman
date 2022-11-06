@@ -46,4 +46,14 @@ type PlayOptions struct {
 	Start *bool
 	// Userns - define the user namespace to use.
 	Userns *string
+	// Force - remove volumes on --down
+	Force *bool
+}
+
+// DownOptions are optional options for tearing down kube YAML files to a k8s cluster
+//
+//go:generate go run ../generator/generator.go DownOptions
+type DownOptions struct {
+	// Force - remove volumes on --down
+	Force *bool
 }
